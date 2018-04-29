@@ -137,7 +137,6 @@ public class WordSalad implements Iterable<String> {
 				chops = (chops > 1 ? chops - 1 : 1);
 			}
 		}
-		System.out.println("WSarray /n" + wsarray.toString());
 		return wsarray;
 	}
 
@@ -160,11 +159,6 @@ public class WordSalad implements Iterable<String> {
 		WordSalad[] wsarray = new WordSalad[arraysize];
 		WordSalad a = this;
 		int interval = (int)text_to_split/words_to_pickup;
-		System.out.println(" arraysize " + arraysize);
-		System.out.println(" wordstosplit " + text_to_split);
-		System.out.println(" wordstopickup " + words_to_pickup);
-		System.out.println(" interval " + interval);
-		System.out.println("\n");
 		while (text_to_split > 0) {
 			for (int j = 0; j < arraysize; j++) {
 				int counter = 0;
@@ -174,9 +168,7 @@ public class WordSalad implements Iterable<String> {
 					tempword = iterator.next();
 					if  (( counter == 0))  {
 						wstogo.addLast(tempword);
-						System.out.println(" goes to wsarray  " + tempword );
 					} else {
-						System.out.println(" goes to rest  " + tempword );
 						wstoend.addLast(tempword);
 					}
 					if (counter < interval) {
@@ -192,10 +184,6 @@ public class WordSalad implements Iterable<String> {
 				if (words_to_pickup != 0 ) {
 					interval = (int)text_to_split/words_to_pickup;
 				}
-				System.out.println(" wordstosplit " + text_to_split);
-				System.out.println(" wordstopickup  " + words_to_pickup);
-				System.out.println(" interval  " + interval);
-//				counter = 0;
 			}
 		}
 		return wsarray;
@@ -222,8 +210,6 @@ public class WordSalad implements Iterable<String> {
 					flag = flag + notempty[m];
 				}
 				if (flag == 0) {
-					// System.out.println("Merge done.");
-					// System.out.println(wordsalad.toString());
 					return wordsalad;
 				}
 			}
@@ -237,9 +223,6 @@ public class WordSalad implements Iterable<String> {
 
 	public static WordSalad join(WordSalad[] blocks) {
 		WordSalad wordsalad = new WordSalad();
-		// for(int i = 0; i < blocks.length; i++ ) {
-		//
-		// }
 		for (int i = 0; i < blocks.length; i++) {
 			for (Iterator<String> block = blocks[i].iterator(); block.hasNext();) {
 				String word = (String) block.next();
