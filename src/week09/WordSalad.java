@@ -99,17 +99,17 @@ public class WordSalad implements Iterable<String> {
 	public WordSalad[] distribute(int k) {
 		WordSalad[] wsarray = new WordSalad[k];
 		String word = null;
-		int blocknum = 0;
+		int arrindex = 0;
 		for (Iterator<String> single = this.iterator(); single.hasNext();) {
 			word = (String) single.next();
-			if (wsarray[blocknum] == null) {
-				wsarray[blocknum] = new WordSalad();
+			if (wsarray[arrindex] == null) {
+				wsarray[arrindex] = new WordSalad();
 			}
-			wsarray[blocknum].addLast(word);
-			if (blocknum < k - 1) {
-				blocknum++;
+			wsarray[arrindex].addLast(word);
+			if (arrindex < k - 1) {
+				arrindex++;
 			} else {
-				blocknum = 0;
+				arrindex = 0;
 			}
 		}
 		return wsarray;
@@ -217,32 +217,32 @@ public class WordSalad implements Iterable<String> {
      */
 	public static WordSalad merge(WordSalad[] wsmembers) {
 		WordSalad wordsalad = new WordSalad();
-		int i = 0;
-		String s = "";
-		int[] notempty = new int[wsmembers.length];
+		int counter = 0;
+		String tempstring = "";
+		int[] wsmembersize = new int[wsmembers.length];
 		Iterator<String>[] iterators = new Iterator[wsmembers.length];
 		for (int j = 0; j < wsmembers.length; j++) {
 			iterators[j] = wsmembers[j].iterator();
-			notempty[j] = 1;
+			wsmembersize[j] = 1;
 		}
 		while (true) {
-			if (iterators[i].hasNext()) {
-				s = iterators[i].next();
-				wordsalad.addLast(s);
+			if (iterators[counter].hasNext()) {
+				tempstring = iterators[counter].next();
+				wordsalad.addLast(tempstring);
 			} else {
-				notempty[i] = 0;
+				wsmembersize[counter] = 0;
 				int flag = 0;
-				for (int m = 0; m < notempty.length; m++) {
-					flag = flag + notempty[m];
+				for (int m = 0; m < wsmembersize.length; m++) {
+					flag = flag + wsmembersize[m];
 				}
 				if (flag == 0) {
 					return wordsalad;
 				}
 			}
-			if (i < wsmembers.length - 1) {
-				i++;
+			if (counter < wsmembers.length - 1) {
+				counter++;
 			} else {
-				i = 0;
+				counter = 0;
 			}
 		}
 	}
