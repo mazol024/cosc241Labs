@@ -151,6 +151,7 @@ public class WordSalad implements Iterable<String> {
 		}
 		return wsarray;
 	}
+	
 	/**
      *  Method split is intended to split ordSalad object into 
      *  an array of k instances of WordSalad objects.
@@ -206,6 +207,7 @@ public class WordSalad implements Iterable<String> {
 		}
 		return wsarray;
 	}
+	
 	/**
      *  Method merge is intended to merge WordSalad array 
      *  into WordSalad object.
@@ -244,6 +246,7 @@ public class WordSalad implements Iterable<String> {
 			}
 		}
 	}
+	
 	/**
      *  Method join is intended to join WordSalad array 
      *  into WordSalad object.
@@ -251,7 +254,6 @@ public class WordSalad implements Iterable<String> {
      *  @param wsmembers is WordSalad array to operate join
      *  @return WordSalad class before chop (original)
      */
-
 	public static WordSalad join(WordSalad[] wsmembers) {
 		WordSalad wordsalad = new WordSalad();
 		for (int i = 0; i < wsmembers.length; i++) {
@@ -271,7 +273,6 @@ public class WordSalad implements Iterable<String> {
      *  @param k integer is number blocks of WordSalad array
      *  @return WordSalad class before split (original)
      */
-
 	public static WordSalad recombine(WordSalad[] blocks, int k) {
 		return null;
 	}
