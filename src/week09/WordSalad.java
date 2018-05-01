@@ -89,9 +89,11 @@ public class WordSalad implements Iterable<String> {
 	}
 
 	/**
-     *  Method distribute is intended to distribute WS into k salads storing in MULT.
-     *  @param k integer number of pieces to distribute
-     *  @return WS array with size equal k
+     *  Method distribute is intended to distribute WordSalad object into 
+     *  an array of k instances of WordSalad objects.
+     *  
+     *  @param k integer - the size of array to distribute
+     *  @return WordSalad array with size equal k
      *
      */
 	public WordSalad[] distribute(int k) {
@@ -114,9 +116,10 @@ public class WordSalad implements Iterable<String> {
 	}
 
 	/**
-     *  Method chop is intended to chop WS into k salads storing in MULT.
-     *  @param k integer number of pieces to chop
-     *  @return WS array with size equal k
+     *  Method chop is intended to chop WordSalad object into 
+     *  an array of k instances of WordSalad objects.
+     *  @param k integer - the size of array to chop
+     *  @return WordSalad array with size equal k
      *       
      */
 	public WordSalad[] chop(int k) {
@@ -149,9 +152,11 @@ public class WordSalad implements Iterable<String> {
 		return wsarray;
 	}
 	/**
-     *  Method split is intended to split WS and store in MULT using parameter k.
-     *  @param k integer number of pieces to split
-     *  @return WS array with size equal k
+     *  Method split is intended to split ordSalad object into 
+     *  an array of k instances of WordSalad objects.
+     *  
+     *  @param k integer - the size of array to split
+     *  @return WordSalad array with size equal k
      */
 	public WordSalad[] split(int k) {
 		String tempword = "";
@@ -202,9 +207,11 @@ public class WordSalad implements Iterable<String> {
 		return wsarray;
 	}
 	/**
-     *  Method merge is intended to merge salads from MULT and store in WS
+     *  Method merge is intended to merge WordSalad array 
+     *  into WordSalad object.
+     *  
      *  @param wsmembers is WordSalad array to operate merge
-     *  @return WordSalad class before distribute
+     *  @return WordSalad class before distribute (original)
      */
 	public static WordSalad merge(WordSalad[] wsmembers) {
 		WordSalad wordsalad = new WordSalad();
@@ -238,9 +245,11 @@ public class WordSalad implements Iterable<String> {
 		}
 	}
 	/**
-     *  Method join is intended to join salads from MULT and store in WS
+     *  Method join is intended to join WordSalad array 
+     *  into WordSalad object.
+     *  
      *  @param wsmembers is WordSalad array to operate join
-     *  @return WordSalad class before chop
+     *  @return WordSalad class before chop (original)
      */
 
 	public static WordSalad join(WordSalad[] wsmembers) {
@@ -253,6 +262,15 @@ public class WordSalad implements Iterable<String> {
 		}
 		return wordsalad;
 	}
+
+	/**
+     *  Method recombine is intended to recombine WordSalad array 
+     *  into WordSalad object.
+     *  
+     *  @param blocks is WordSalad array size
+     *  @param k integer is number blocks of WordSalad array
+     *  @return WordSalad class before split (original)
+     */
 
 	public static WordSalad recombine(WordSalad[] blocks, int k) {
 		return null;
