@@ -88,9 +88,12 @@ public class WordSalad implements Iterable<String> {
 		return result.toString() + "]";
 	}
 
-	// Method stubs to be completed for the assignment.
-	// See the assignment description for specification of their behaviour.
-
+	/**
+     *  Method distribute is intended to distribute WS into k salads storing in MULT.
+     *  @param k integer number of pieces to distribute
+     *  @return WS array with size equal k
+     *
+     */
 	public WordSalad[] distribute(int k) {
 		WordSalad[] wsarray = new WordSalad[k];
 		String word = null;
@@ -110,6 +113,12 @@ public class WordSalad implements Iterable<String> {
 		return wsarray;
 	}
 
+	/**
+     *  Method chop is intended to chop WS into k salads storing in MULT.
+     *  @param k integer number of pieces to chop
+     *  @return WS array with size equal k
+     *       
+     */
 	public WordSalad[] chop(int k) {
 		String word = "";
 		int counter = 0;
@@ -139,7 +148,11 @@ public class WordSalad implements Iterable<String> {
 		}
 		return wsarray;
 	}
-
+	/**
+     *  Method split is intended to split WS and store in MULT using parameter k.
+     *  @param k integer number of pieces to split
+     *  @return WS array with size equal k
+     */
 	public WordSalad[] split(int k) {
 		String tempword = "";
 		int text_to_split = 0;
@@ -188,15 +201,19 @@ public class WordSalad implements Iterable<String> {
 		}
 		return wsarray;
 	}
-
-	public static WordSalad merge(WordSalad[] blocks) {
+	/**
+     *  Method merge is intended to merge salads from MULT and store in WS
+     *  @param wsmembers is WordSalad array to operate merge
+     *  @return WordSalad class before distribute
+     */
+	public static WordSalad merge(WordSalad[] wsmembers) {
 		WordSalad wordsalad = new WordSalad();
 		int i = 0;
 		String s = "";
-		int[] notempty = new int[blocks.length];
-		Iterator<String>[] iterators = new Iterator[blocks.length];
-		for (int j = 0; j < blocks.length; j++) {
-			iterators[j] = blocks[j].iterator();
+		int[] notempty = new int[wsmembers.length];
+		Iterator<String>[] iterators = new Iterator[wsmembers.length];
+		for (int j = 0; j < wsmembers.length; j++) {
+			iterators[j] = wsmembers[j].iterator();
 			notempty[j] = 1;
 		}
 		while (true) {
@@ -213,18 +230,23 @@ public class WordSalad implements Iterable<String> {
 					return wordsalad;
 				}
 			}
-			if (i < blocks.length - 1) {
+			if (i < wsmembers.length - 1) {
 				i++;
 			} else {
 				i = 0;
 			}
 		}
 	}
+	/**
+     *  Method join is intended to join salads from MULT and store in WS
+     *  @param wsmembers is WordSalad array to operate join
+     *  @return WordSalad class before chop
+     */
 
-	public static WordSalad join(WordSalad[] blocks) {
+	public static WordSalad join(WordSalad[] wsmembers) {
 		WordSalad wordsalad = new WordSalad();
-		for (int i = 0; i < blocks.length; i++) {
-			for (Iterator<String> block = blocks[i].iterator(); block.hasNext();) {
+		for (int i = 0; i < wsmembers.length; i++) {
+			for (Iterator<String> block = wsmembers[i].iterator(); block.hasNext();) {
 				String word = (String) block.next();
 				wordsalad.addLast(word);
 			}
